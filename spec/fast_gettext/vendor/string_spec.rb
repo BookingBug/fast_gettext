@@ -10,7 +10,7 @@ describe String do
   end
 
   before :all do
-    if "i18n gem overwrites % method".respond_to?(:interpolate_without_ruby_19_syntax)
+    if "i18n gem overwrites % method".respond_to?(:interpolate_without_ruby_19_syntax, true)
       class String
         def %(*args)
           interpolate_without_ruby_19_syntax(*args)

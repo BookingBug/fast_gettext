@@ -48,7 +48,7 @@ module FastGettext
 
       MAGIC_BIG_ENDIAN    = "\x95\x04\x12\xde"
       MAGIC_LITTLE_ENDIAN = "\xde\x12\x04\x95"
-      if "".respond_to?(:force_encoding)
+      if "".respond_to?(:force_encoding, true)
         MAGIC_BIG_ENDIAN.force_encoding("ASCII-8BIT")
         MAGIC_LITTLE_ENDIAN.force_encoding("ASCII-8BIT")
       end
@@ -304,7 +304,7 @@ module FastGettext
       attr_reader :charset, :nplurals, :plural
 
       private
-      if "".respond_to?(:encode)
+      if "".respond_to?(:encode, true)
         def convert_encoding(string, original_string)
           begin
             string.encode(@output_charset, @charset)

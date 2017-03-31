@@ -20,7 +20,7 @@ module FastGettext
       def self.seperator;@@seperator;end
 
       def available_locales
-        if @model.respond_to? :available_locales
+        if @model.respond_to? :available_locales, true
           @model.available_locales || []
         else
           []
@@ -28,7 +28,7 @@ module FastGettext
       end
 
       def pluralisation_rule
-        if @model.respond_to? :pluralsation_rule
+        if @model.respond_to? :pluralsation_rule, true
           @model.pluralsation_rule
         else
           nil
