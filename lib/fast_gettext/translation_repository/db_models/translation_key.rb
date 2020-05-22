@@ -42,7 +42,7 @@ class TranslationKey < ActiveRecord::Base
   end
 
   def self.load_all(locale)
-    translation_texts = TranslationText.find(:all, :conditions=>["locale = ?", locale], :include=>[:translation_key])
+    translation_texts = TranslationText.includes(:translation_key).where(locale: locale)
     translation_texts
     map = {}
     for text in translation_texts
