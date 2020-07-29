@@ -6,8 +6,6 @@ class TranslationKey < ActiveRecord::Base
   validates_uniqueness_of :key
   validates_presence_of :key
 
-  attr_accessible :key, :translations, :translations_attributes,  :override, :front_end, :custom
-
   before_save :normalize_newlines
 
   def to_label
